@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useState } from "react";
+import logo from "../assets/logo.png";
 
 export default function Navbar() {
   const { scrollY } = useScroll();
@@ -28,15 +29,22 @@ export default function Navbar() {
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="flex flex-col gap-0 cursor-pointer group"
+          className="flex items-center gap-4 cursor-pointer group"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          <span className={`micro-label transition-all duration-500 ${isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto opacity-40"}`}>
-            Portfolio 2024
-          </span>
-          <span className={`font-serif italic transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>
-            Sunday Emmanuel
-          </span>
+          <img 
+            src={logo} 
+            alt="Logo" 
+            className={`transition-all duration-500 rounded-full object-cover ${isScrolled ? "h-10 w-10" : "h-14 w-14"}`}
+          />
+          <div className="flex flex-col gap-0">
+            <span className={`micro-label transition-all duration-500 ${isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto opacity-40"}`}>
+              Portfolio 2024
+            </span>
+            <span className={`font-serif italic transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>
+              Sunday Emmanuel
+            </span>
+          </div>
         </motion.div>
 
         <motion.div 
